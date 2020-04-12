@@ -8,6 +8,14 @@ const sumRes = sum(10, 20)
 console.log(_.each);
 console.log('sumRes', sumRes)
 
+//引入动态数据 - 懒加载
+
+setTimeout(()=>{
+    import('./dynamic-data.js').then(res=>{
+        console.log(res.default.message);
+    })
+},1500)
+
 // // 增加，开启热更新之后的代码逻辑
 // if (module.hot) {
 //     module.hot.accept(['./math'], () => {
