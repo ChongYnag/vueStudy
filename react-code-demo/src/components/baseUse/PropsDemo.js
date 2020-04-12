@@ -15,7 +15,7 @@ class Input extends React.Component {
     }
     render() {
         return <div>
-            <input value={this.state.title} onChange={this.onTitleChange}/>
+            <input value={this.state.title} onChange={this.onTitleChange} />
             <button onClick={this.onSubmit}>提交</button>
         </div>
     }
@@ -77,7 +77,13 @@ class Footer extends React.Component {
         }
         return false // 不重复渲染
     }
-
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.text !== this.props.text
+            || nextProps.length !== this.props.length) {
+            return true;
+        }
+        return false
+    }
     // React 默认：父组件有更新，子组件则无条件也更新！！！
     // 性能优化对于 React 更加重要！
     // SCU 一定要每次都用吗？—— 需要的时候才优化
@@ -107,9 +113,9 @@ class TodoListDemo extends React.Component {
     }
     render() {
         return <div>
-            <Input submitTitle={this.onSubmitTitle}/>
-            <List list={this.state.list}/>
-            <Footer text={this.state.footerInfo} length={this.state.list.length}/>
+            <Input submitTitle={this.onSubmitTitle} />
+            <List list={this.state.list} />
+            <Footer text={this.state.footerInfo} length={this.state.list.length} />
         </div>
     }
     onSubmitTitle = (title) => {

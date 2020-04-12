@@ -1,3 +1,11 @@
+
+/**
+ *  Object.defineProperty 缺点
+ *  1. 深度监听，需要递归到底，一次性计算量大
+ *  2. 新增，删除属性 监听不到。 （Vue.set  Vue.delete 替代）
+ *  3. 无法监听数组，需要对数组单独处理监听
+ */
+
 // 触发更新视图
 function updateView() {
     console.log('视图更新')

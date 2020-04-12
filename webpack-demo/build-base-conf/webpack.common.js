@@ -24,7 +24,7 @@ module.exports = {
             // },
             {
                 test: /\.css$/,
-                // loader 的执行顺序是：从后往前
+                // loader 的执行顺序是：从后往前 //postcss 配置样式兼容性问题
                 loader: ['style-loader', 'css-loader', 'postcss-loader'] // 加了 postcss
             },
             {

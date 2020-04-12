@@ -1,6 +1,7 @@
 import React from 'react'
 
-const ContextDemo = React.lazy(() => import('./ContextDemo'))
+// const ContextDemo = React.lazy(() => import('./ContextDemo'))
+const ContextDemo = React.lazy(()=>import('./ContextDemo'))
 
 class App extends React.Component {
     constructor(props) {
@@ -10,8 +11,8 @@ class App extends React.Component {
         return <div>
             <p>引入一个动态组件</p>
             <hr />
-            <React.Suspense fallback={<div>Loading...</div>}>
-                <ContextDemo/>
+            <React.Suspense fallback={<div>loading...</div>}>
+                <ContextDemo />
             </React.Suspense>
         </div>
 
